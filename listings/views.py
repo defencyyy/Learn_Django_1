@@ -1,6 +1,11 @@
 from django.shortcuts import render
 
 def index(request):
+  listings = Listing.object.all()
+  
+  context = {
+    'listings': listings
+  }
   return render(request, 'listings/listings.html')
 
 def listing(request):
